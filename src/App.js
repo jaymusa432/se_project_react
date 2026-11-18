@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// App = the page's outline. It holds data for now (weather + items)
+// pulled from constants.js, filters it, and maps each item to an ItemCard.
+// `map()` in React = "for each thing, render its card" — replaces your
+// Spots forEach + appendChild loop.
+
+import "./App.css";
+import ItemCard from "./components/ItemCard";
+import { weather, items } from "./utils/constants";
 
 function App() {
+  // Today's (mock) temperature decides which clothes to show.
+  const todaysItems = items.filter((item) => item.weather === "hot");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="page">
+      <header className="header">
+        <h1 className="header__city">{weather.city}</h1>
+        <h2 className="header__temp">Today: {weather.temperature}°F</h2>
       </header>
+      <main className="gallery">
+        <ul className="cards">
+          {todaysItems.map((item) => (
+            <ItemCard key={item.id} item={item} />
+          ))}
+        </ul>
+      </main>
     </div>
   );
 }
