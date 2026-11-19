@@ -5,11 +5,14 @@
 
 import "./App.css";
 import ItemCard from "./components/ItemCard";
+import WeatherCard from "./components/WeatherCard";
 import { weather, items } from "./utils/constants";
+import getWeatherType from "./utils/getWeatherType";
 
 function App() {
-  // Today's (mock) temperature decides which clothes to show.
-  const todaysItems = items.filter((item) => item.weather === "hot");
+  // The judge decides the word; the filter picks clothes that match it.
+  const todaysType = getWeatherType(weather.temperature);
+  const todaysItems = items.filter((item) => item.weather === todaysType);
 
   return (
     <div className="page">
@@ -18,6 +21,7 @@ function App() {
         <h2 className="header__temp">Today: {weather.temperature}°F</h2>
       </header>
       <main className="gallery">
+        <WeatherCard temperature={weather.temperature} city={weather.city} />
         <ul className="cards">
           {todaysItems.map((item) => (
             <ItemCard key={item.id} item={item} />

@@ -56,3 +56,29 @@
   object-fit: cover;
   display: block;
 }
+
+.weather-card {
+  background: #f2f6f8;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.weather-card__city {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0;
+}
+
+.weather-card__temp {
+  font-size: 20px;
+  margin: 0;
+}
+
+.weather-card__type {
+  margin: 0 0 0 auto;
+  color: #555;
+}
