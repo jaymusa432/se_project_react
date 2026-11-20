@@ -57,6 +57,19 @@
   display: block;
 }
 
+.unit-toggle {
+  margin-left: auto;
+  background: #1e1e1e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.units { display: flex; align-items: baseline; gap: 8px; }
+
 .weather-card {
   background: #f2f6f8;
   border-radius: 12px;
